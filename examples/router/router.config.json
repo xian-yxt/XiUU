@@ -35,6 +35,11 @@
           "desc": "Button 按钮",
           "name": "button",
           "path": "/button"
+        },
+        {
+          "desc": "Card",
+          "name": "yxt_card",
+          "path": "/yxt_card"
         }
       ]
     },

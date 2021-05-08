@@ -8,13 +8,15 @@ import WCol from './col/index'
 import WAlert from './alert/index'
 import WLoadingBar from './loading-bar/index'
 import Skeleton from './skeleton/index'
+import ElCard from './card/src/card'
 
 const components = [
   WButton,
   WRow,
   WCol,
   WAlert,
-  Skeleton
+  Skeleton,
+  ElCard
 ]
 
 const install = function(Vue) {
@@ -34,5 +36,6 @@ export default {
   WCol,
   WAlert,
   WLoadingBar,
-  Skeleton
+  Skeleton,
+  ElCard
 }
