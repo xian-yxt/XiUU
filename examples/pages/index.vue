@@ -22,7 +22,7 @@ export default{
   }
 }
 </script>
-<style type="text/less" lang="less">
+<style type="text/less" lang="scss">
   .pg-index {
     .index-container {
       width: 960px;

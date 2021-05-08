@@ -7,7 +7,7 @@ var salad = require('postcss-salad')(require('./salad.config.json'));
 
 gulp.task('compile', function() {
   return gulp.src('./src/*.css')
-    .pipe(postcss([salad]))
+    .pipe(postcss([ salad ]))
     .pipe(cssmin())
     .pipe(gulp.dest('./lib'));
 });
@@ -19,7 +19,7 @@ gulp.task('copyfont', function() {
 });
 
 
-gulp.task('build', ['compile', 'copyfont']);
+gulp.task('build', [ 'compile', 'copyfont' ]);
 gulp.task('watch', function () {
-  gulp.watch('./src/*.css', ['compile']);
+  gulp.watch('./src/*.css', [ 'compile' ]);
 });
