@@ -18,7 +18,6 @@ let addComponent = router => {
         return
       }
       route.component = r => require.ensure([], () => r(require(`../docs/${ route.name }.md`)))
-      // route.component = r => require.ensure([], () => r(require('../pages/index.vue')))
     }
   })
 }

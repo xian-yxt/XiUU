@@ -35,6 +35,11 @@
           "desc": "Button 按钮",
           "name": "button",
           "path": "/button"
+        },
+        {
+          "desc": "XiButton 按钮",
+          "name": "xibutton",
+          "path": "/xibutton"
         }
       ]
     },

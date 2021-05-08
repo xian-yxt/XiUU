@@ -63,7 +63,7 @@ const createLintingRule = () => ({
   test: /\.(js|vue)$/,
   loader: 'eslint-loader',
   enforce: 'pre',
-  include: [resolve('examples'), resolve('test')],
+  include: [resolve('examples'), resolve('test'), resolve('packages')],
   options: {
     formatter: require('eslint-friendly-formatter'),
     emitWarning: !config.dev.showEslintErrorsInOverlay
@@ -87,6 +87,7 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('examples'),
+      '@fm': resolve('frameworks'),
     }
   },
   module: {
@@ -100,7 +101,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: [resolve('examples'), resolve('test'), resolve('packages')]// , resolve('node_modules/webpack-dev-server/client')
+        include: [resolve('examples'), resolve('test'), resolve('packages'), resolve('frameworks')]// , resolve('node_modules/webpack-dev-server/client')
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,

@@ -45,6 +45,7 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
     ┣            ┣━ router
     ┣            ┣━ App.vue
     ┃            ┗━ main.js
+    ┣━ frameworks 
     ┣━ static 
     ┣━ test
     ┣━ .babelrc
@@ -57,4 +58,9 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
     ┣━ package-lock.json
     ┣━ package.json
     ┗━ README.md
+```
+
+### 二次封装ElementUI需注意：
+```
+组件无法继承slot，需要手动补充
 ```
