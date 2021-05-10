@@ -88,6 +88,7 @@ module.exports = {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('examples'),
       '@fm': resolve('frameworks'),
+      '@src': resolve('src')
     }
   },
   module: {
@@ -101,7 +102,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: [resolve('examples'), resolve('test'), resolve('packages'), resolve('frameworks')]// , resolve('node_modules/webpack-dev-server/client')
+        include: [resolve('examples'), resolve('test'), resolve('packages'), resolve('frameworks'), resolve('src')]// , resolve('node_modules/webpack-dev-server/client')
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,

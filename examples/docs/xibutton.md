@@ -6,7 +6,7 @@
 
 <div class="demo-block">
   <div style="display:flex;flex-direction:row;justify-content:flex-start;align-items:flex-start;flex-wrap:wrap;">
-    <xi-button>默认按钮</xi-button>
+    <xi-button><span slot="title">默认按钮</span></xi-button>
     <xi-button type="primary">主要按钮</xi-button>
     <xi-button type="success">成功按钮</xi-button>
     <xi-button type="info">信息按钮</xi-button>
