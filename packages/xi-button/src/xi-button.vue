@@ -10,7 +10,7 @@
   </div>
 </template>
 */
-import ElButton from '@fm/elementui/button'
+import ElButton from '../../../frameworks/elementui/button'
 export default {
   name: 'XiButton',
   components: {

@@ -8,7 +8,7 @@ import WCol from './col/index'
 import WAlert from './alert/index'
 import WLoadingBar from './loading-bar/index'
 import Skeleton from './skeleton/index'
-import '@fm/elementui/theme-chalk/src/index.scss'
+import '../frameworks/elementui/theme-chalk/src/index.scss'
 import XiButton from './xi-button/index'
 
 const components = [
