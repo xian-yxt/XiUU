@@ -2,7 +2,7 @@
 
 ----
 
-`XiUU-UI` 是一款基于 `Vue.js 2.0` 的yxt企业前端 UI 组件库，[测试地址](https://xiooloo.github.io/)
+`XiUU-UI` 是一款基于 `Vue.js 2.0` 的yxt企业前端 UI 组件库，[测试地址](https://github.com/xian-yxt/XiUU)
 
 ## 特性
 
@@ -19,4 +19,4 @@
 
 ## 贡献
 
-如果你在使用 `XiUU-UI` 时遇到问题，或者有好的建议，欢迎给我们提 [Issue](https://github.com/xiooLoo/xiuu-ui/issues) 或 [Pull Request](https://github.com/xiooLoo/xiuu-ui/pulls)
+如果你在使用 `XiUU-UI` 时遇到问题，或者有好的建议，欢迎给我们提 [Issue](https://github.com/xian-yxt/XiUU/issues) 或 [Pull Request](https://github.com/xian-yxt/XiUU/pulls)
