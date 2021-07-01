@@ -35,16 +35,16 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 
 ####  ** 项目结构：**
 ```
-    ┏━ build
-    ┣━ config
+    ┏━ build #构建配置
+    ┣━ config #环境变量
     ┣━ node_modules
-    ┣━ docs ━┳━ assets
-    ┣            ┣━ components
-    ┣            ┣━ docs
-    ┣            ┣━ pages
-    ┣            ┣━ router
-    ┣            ┣━ App.vue
-    ┃            ┗━ main.js
+    ┣━ docs ━┳━ assets #静态资源文件
+    ┣        ┣━ components  #Markdown项目组件（非对外组件）
+    ┣        ┣━ docs #Markdown文档
+    ┣        ┣━ pages #Markdown项目入口
+    ┣        ┣━ router #Markdown文档路由
+    ┣        ┣━ App.vue
+    ┃        ┗━ main.js
     ┣━ frameworks 
     ┣━ static 
     ┣━ test
