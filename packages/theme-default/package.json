@@ -1,14 +1,14 @@
 {
-  "name": "xiuu-ui-theme-default",
+  "name": "yxt-ui-theme-default",
   "version": "1.0.0",
-  "description": "XiUU-UI component default theme.",
+  "description": "YXT-UI component default theme.",
   "main": "lib/index.css",
   "scripts": {
     "dev": "gulp build && gulp watch",
     "build": "gulp build"
   },
   "keywords": [
-    "XiUU-UI",
+    "YXT-UI",
     "theme"
   ],
   "author": "xiooLoo",

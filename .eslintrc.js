@@ -24,7 +24,7 @@ module.exports = {
     'quotes': [ 'error', 'single' ], /**要求使用单引号 */
     'linebreak-style': [ 0, 'error', 'windows' ], /**强制使用一致的换行风格 */
     'no-use-before-define': [ 'error', {
-      'functions': false,
+      'functions': true,
       'classes': true
     } ], /**禁止在变量定义之前使用它们 */
     'no-param-reassign': [ 'error', { 'props': false } ], /**禁止对 function 的参数进行重新赋值 */

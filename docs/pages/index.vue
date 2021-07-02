@@ -7,7 +7,7 @@
     <div class="separate-panel">
       <div class="about">
         <router-link :to="{name: 'giud'}">开始使用</router-link>
-        <a target="_blank" class="btn-github" href="https://github.com/xiooLoo">GitHub</a>
+        <a target="_blank" class="btn-github" href="http://114.116.145.114:8088/pltform-web/yxtui">GitHub</a>
       </div>
     </div>
   </div>

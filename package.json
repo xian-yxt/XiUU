@@ -1,19 +1,19 @@
 {
-  "name": "xiuu-ui",
+  "name": "yxt-ui",
   "version": "1.0.1",
-  "description": "[XiUU-UI]基于vue+webpack+npm搭建个人组件库",
-  "author": "xiooLoo <204138282@qq.com>",
+  "description": "易迅通科技前端组件库",
+  "author": "易迅通",
   "license": "MIT",
   "main": "packages/index.js",
-  "homepage": "https://xiooloo.github.io/",
+  "homepage": "http://114.116.145.114:8088/pltform-web/yxtui",
   "repository": {
     "type": "git",
     "url": "https://github.com/xian-yxt/XiUU.git"
   },
   "keywords": [
-    "XiUU",
-    "yxt",
-    "xi"
+    "YXTUI",
+    "yxtui",
+    ""
   ],
   "private": false,
   "scripts": {
