@@ -1,3 +1,3 @@
 # Theme default
 
-this is theme default of XiUU-UI
+this is theme default of YXT-UI
