@@ -33,13 +33,8 @@
       "items": [
         {
           "desc": "Button 按钮",
-          "name": "button",
-          "path": "/button"
-        },
-        {
-          "desc": "XiButton 按钮",
-          "name": "xibutton",
-          "path": "/xibutton"
+          "name": "base_button",
+          "path": "/base_button"
         }
       ]
     },
@@ -48,18 +43,18 @@
       "path": "/component",
       "items": [
         {
-          "desc": "alert 警告",
-          "name": "alert",
-          "path": "/alert"
+          "desc": "showtip 短提示",
+          "name": "base_showtip",
+          "path": "/showtip"
         },
         {
           "desc": "LoadingBar 加载进度条",
-          "name": "loading-bar",
-          "path": "/loadingBar"
+          "name": "base_loadingbar",
+          "path": "/loadingbar"
         },
         {
           "desc": "skeleton 骨架屏",
-          "name": "skeleton",
+          "name": "base_skeleton",
           "path": "/skeleton"
         }
       ]

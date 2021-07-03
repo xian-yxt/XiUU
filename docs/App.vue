@@ -14,10 +14,10 @@
 </template>
 
 <script>
-import DocsHeader from '@/components/__STATIC_COMPONENTS/DocsHeader.vue';
-import DocsFooter from '@/components/__STATIC_COMPONENTS/DocsFooter.vue';
-import DocsSideBar from '@/components/__STATIC_COMPONENTS/DocsSideBar.vue';
-import DocsMainSkeleton from '@/components/__STATIC_COMPONENTS/DocsMainSkeleton.vue';
+import DocsHeader from '@/components/_global_$/DocsHeader.vue';
+import DocsFooter from '@/components/_global_$/DocsFooter.vue';
+import DocsSideBar from '@/components/_global_$/DocsSideBar.vue';
+import DocsMainSkeleton from '@/components/_global_$/DocsMainSkeleton.vue';
 
 export default {
   name: 'app',

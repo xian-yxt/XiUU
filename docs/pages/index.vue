@@ -2,7 +2,7 @@
   <div  class="pg-index">
     <div class="index-container">
       <img src="../assets/img/banner.png">
-      <p>yxt前端 UI 组件库</p>
+      <p>易迅通前端 UI 组件库</p>
     </div>
     <div class="separate-panel">
       <div class="about">
