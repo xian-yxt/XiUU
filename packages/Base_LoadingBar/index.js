@@ -57,17 +57,3 @@ LoadingBarConstructor.prototype.error = function () {
 }
 
 export default ExtendLoadingBar()
-
-
-// /**
-//  * @author xiooLoo
-//  * Date: 21/07/03
-//  */
-// import BaseLoadingBar from './src/BaseLoadingBar.vue';
-
-// BaseLoadingBar.install = function (Vue) {
-//   Vue.component(BaseLoadingBar.name, BaseLoadingBar);
-// };
-
-// export default BaseLoadingBar;
-
