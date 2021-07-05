@@ -1,4 +1,2 @@
-'use strict'
-module.exports = {
-  NODE_ENV: '"production"'
-}
+'use strict';
+export const NODE_ENV = '"production"';

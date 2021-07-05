@@ -40,17 +40,16 @@ const components = [
   BaseSkeleton,
   BaseLoadingBar,
   BaseShowTip
-]
+];
 
 const install = function(Vue) {
-  if (install.installed) return
-  components.map(component => Vue.component(component.name, component))
-  Vue.prototype.$loading = BaseLoadingBar
-}
+  if (install.installed) return;
+  components.map(component => Vue.component(component.name, component));
+  Vue.prototype.$loading = BaseLoadingBar;
+};
 
-if (typeof window !== 'undefined' && window.Vue) {
-  install(window.Vue)
-}
+if (typeof window !== 'undefined' && window.Vue) install(window.Vue);
+
 
 export default {
   install,
@@ -61,4 +60,4 @@ export default {
   BaseSkeleton,
   BaseLoadingBar,
   BaseShowTip
-}
+};

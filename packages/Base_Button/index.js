@@ -4,7 +4,7 @@
  */
 import BaseButton from './src/BaseButton.vue';
 
-BaseButton.install = function (Vue) {
+BaseButton.install = function(Vue) {
   Vue.component(BaseButton.name, BaseButton);
 };
 

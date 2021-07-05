@@ -17,7 +17,7 @@ class="spinner-icon"
 </template>
 
 <script>
-export default{
+export default {
   name: 'BaseLoadingBar',
   props: {
     type: {
@@ -25,7 +25,7 @@ export default{
       default: 1
     }
   },
-  data () {
+  data() {
     return {
       speed: 5,
       easing: 'linear',
@@ -33,7 +33,7 @@ export default{
       totalProgress: 0,
       showSpinner: true,
       isError: false
-    }
+    };
   }
 }
 </script>

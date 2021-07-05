@@ -32,11 +32,8 @@ function isTextNode(vnode) {
     vnode.length === 1 &&
     vnode[0].tag === undefined &&
     vnode[0].text
-  ) {
-    return true;
-  } else {
-    return false;
-  }
+  ) return true;
+  else return false;
 }
 
 export default {
@@ -80,7 +77,7 @@ export default {
   },
   computed: {
     typeClass() {
-      return `w-alert--${ this.type }`;
+      return `w-alert--${this.type}`;
     },
     iconClass() {
       //暂无对应图标
@@ -95,7 +92,7 @@ export default {
     }
   },
   methods: {
-    close(e) {
+    close() {
       this.visible = false;
       this.$emit('close');
     }

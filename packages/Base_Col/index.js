@@ -10,5 +10,3 @@ BaseCol.install = function(Vue) {
 };
 
 export default BaseCol;
-
-

@@ -24,10 +24,10 @@ export default {
 
   computed: {
     style() {
-      var ret = {};
+      let ret = {};
 
       if (this.gutter) {
-        ret.marginLeft = `-${ this.gutter / 2 }px`;
+        ret.marginLeft = `-${this.gutter / 2}px`;
         ret.marginRight = ret.marginLeft;
       }
 
@@ -39,13 +39,12 @@ export default {
     return h(this.tag, {
       class: [
         'w-row',
-        this.justify !== 'start' ? `is-justify-${ this.justify }` : '',
-        this.align !== 'top' ? `is-align-${ this.align }` : '',
+        this.justify !== 'start' ? `is-justify-${this.justify}` : '',
+        this.align !== 'top' ? `is-align-${this.align}` : '',
         { 'w-row--flex': this.type === 'flex' }
       ],
       style: this.style
     }, this.$slots.default);
   }
 };
-
 

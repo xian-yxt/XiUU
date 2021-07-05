@@ -9,7 +9,7 @@
   </div>
 </template>
 */
-import ElButton from '@fm/elementui/button'
+import ElButton from '@fm/elementui/button';
 export default {
   name: 'BaseElButton',
   components: {
@@ -17,14 +17,15 @@ export default {
   },
   render (h) {
     return (
-      <ElButton { ...{ props: this.$attrs, on: this.$listeners } } class="xi__button" scopedSlots={ this.$scopedSlots } slots={ this.$slots }>
+      <ElButton { ...{ props: this.$attrs,
+        on: this.$listeners } } class="xi__button" scopedSlots={ this.$scopedSlots } slots={ this.$slots }>
         {
           Object.keys(this.$slots).map(name => {
-            return h('div', this.$slots[name])
+            return h('div', this.$slots[name]);
           })
         }
       </ElButton>
-    )
-  },
-}
+    );
+  }
+};
 </script>

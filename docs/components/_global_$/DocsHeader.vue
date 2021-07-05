@@ -46,6 +46,6 @@ width="100"
 export default {
   data() {
     return {};
-  },
+  }
 };
 </script>
