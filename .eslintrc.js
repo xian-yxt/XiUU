@@ -108,7 +108,7 @@ module.exports = {
     'no-multiple-empty-lines': ['error', { 'max': 2, 'maxEOF': 1 }], /**禁止出现多个（大于 2 个）连续空行, 在文件末尾强制执行最大数量为2行的连续空行 */
     'curly': ['error', 'multi'], /**多行语句必须用大括号包裹，单行语句推荐用大括号包裹 */
     'no-floating-decimal': 'error', /**不要省略小数点前或小数点后的 0 */
-    'no-undef': ['error', { 'typeof': true }], /**不要使用未声明的变量... */
+    'no-undef': ['off', { 'typeof': true }], /**不要使用未声明的变量... */
     'no-var': 'error', /**使用 const 或 let 声明变量，不要使用 var */
     'prefer-const': 'off', /**正确地使用 const 和 let，(声明变量时，应优先使用 const，只有当变量会被重新赋值时才使用 let) */
     'no-unused-vars': 'error', /**声明的变量必须被使用 */

@@ -1,5 +1,5 @@
-/*eslint no-undef: "error"*/
-/*eslint-env node*/
+/* eslint no-undef: "error"*/
+/* eslint-env node*/
 import Vue from 'vue';
 import Router from 'vue-router';
 import routerConfig from './router.config.json';
