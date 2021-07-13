@@ -14,23 +14,23 @@
 </template>
 
 <script>
-import DocsHeader from '@/components/__STATIC_COMPONENTS/DocsHeader.vue';
-import DocsFooter from '@/components/__STATIC_COMPONENTS/DocsFooter.vue';
-import DocsSideBar from '@/components/__STATIC_COMPONENTS/DocsSideBar.vue';
-import DocsMainSkeleton from '@/components/__STATIC_COMPONENTS/DocsMainSkeleton.vue';
+import DocsHeader from '@/components/_global_$/DocsHeader.vue';
+import DocsFooter from '@/components/_global_$/DocsFooter.vue';
+import DocsSideBar from '@/components/_global_$/DocsSideBar.vue';
+import DocsMainSkeleton from '@/components/_global_$/DocsMainSkeleton.vue';
 
 export default {
   name: 'app',
   data() {
     return {
       init: false,
-      isIndex: true,
+      isIndex: true
     };
   },
   watch: {
     $route() {
       this.isIndex = this.$route.name === 'index';
-    },
+    }
   },
   mounted() {
     //  这里模拟数据请求
@@ -42,32 +42,34 @@ export default {
     DocsHeader,
     DocsFooter,
     DocsSideBar,
-    DocsMainSkeleton,
-  },
+    DocsMainSkeleton
+  }
 };
 </script>
 
 <style lang="less" type="text/less">
-@import "./assets/less/index";
+@import url("./assets/less/index.less");
 
 .container {
   margin: 48px auto;
   width: 90%;
   background-color: #fff;
   box-shadow: 0 4px 30px 0 rgba(223, 225, 230, 0.5);
+
   .nav {
     float: left;
     width: 210px;
   }
+
   .view {
     float: left;
-    width: calc(~"100% - 215px");
+    width: calc(100% - 215px);
     padding: 32px 48px 48px;
     box-sizing: border-box;
   }
 }
 
-.container:after {
+.container::after {
   content: "";
   clear: both;
   display: block;

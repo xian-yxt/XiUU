@@ -1,39 +1,47 @@
-# library-XiUU-UI
+# library-YXT-UI
 
 > 基于vue+webpack+npm搭建个人组件库
 
 # XiUU-UI
 
-`XiUU-UI` 是一款基于 `Vue.js 2.0` 的yxt企业前端 UI 组件库，[测试地址](http://114.116.145.114:8088/pltform-web/yxtui)
+`YXT-UI` 是一款基于 `Vue.js 2.0` 的企业前端 UI 组件库，[测试地址](http://114.116.145.114:8088/yxt-vehicle/yxt-ui.git)
 
 ## Build Setup
 
 ``` bash
-# install dependencies
+# 安装依赖包
 npm install
 
-# serve with hot reload at localhost:8080
-npm run dev
+# 启动项目（serve with hot reload at） localhost:8080
+npm run dev | npm run start
 
-# build for production with minification
+# 打包本地dist
 npm run build
 
-# build for production and view the bundle analyzer report
-npm run build --report
+# 单元测试(unit、e2e)
+npm run test
 
-# run unit tests
+# 单元测试(unit)
 npm run unit
 
-# run e2e tests
+# 单元测试(e2e)
 npm run e2e
 
-# run all tests
-npm test
+# ESLint全局格式化检查
+npm run lint
+
+# stylelint全局格式化检查
+npm run stylelint
+
+# git标记tag节点进行发布前准备
+npm run tag
+
+# npm包打包发布
+npm run publish
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
-
-####  ** 项目结构：**
+---
+####  **项目结构：**
 ```
     ┏━ build #构建配置
     ┣━ config #环境变量
@@ -60,7 +68,34 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
     ┗━ README.md
 ```
 
-### 二次封装ElementUI需注意：
+---
+### **注释的目的**：提高代码的可读性，从而提高代码的可维护性
+
+### **注释的原则**：如无必要，勿增注释；如有必要，尽量详尽。
+
+---
+### **ESLint + stylelint配置自动化修复流程：**
+
+1、安装vscode 插件 `stylelint`;
+
+2、vscode `setting.json`文件中添加以下配置：
+
 ```
-组件无法继承slot，需要手动补充
+"editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.fixAll.stylelint": true,
+},
+"editor.defaultFormatter": "dbaeumer.vscode-eslint",
+"editor.formatOnSave": true,
+"editor.formatOnType": true,
+"stylelint.enable": true,
+"css.validate": true,
+"less.validate": true,
+"scss.validate": true,
+
+"eslint.format.enable": true,
+"eslint.alwaysShowStatus": true,
+"eslint.codeAction.showDocumentation": {
+    "enable": true
+},
 ```

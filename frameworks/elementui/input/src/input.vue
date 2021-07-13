@@ -114,11 +114,11 @@ class="el-input__icon"
   </div>
 </template>
 <script>
-import emitter from '@src/mixins/emitter';
-import Migrating from '@src/mixins/migrating';
+import emitter from '../../../../src/mixins/emitter';
+import Migrating from '../../../../src/mixins/migrating';
 import calcTextareaHeight from './calcTextareaHeight';
-import merge from '@src/utils/merge';
-import { isKorean } from '@src/utils/shared';
+import merge from '../../../../src/utils/merge';
+import { isKorean } from '../../../../src/utils/shared';
 
 export default {
   name: 'ElInput',

@@ -9,7 +9,7 @@ class="el-form"
   </form>
 </template>
 <script>
-import objectAssign from '@src/utils/merge';
+import objectAssign from '../../../../src/utils/merge';
 
 export default {
   name: 'ElForm',

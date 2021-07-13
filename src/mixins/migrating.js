@@ -1,4 +1,4 @@
-import { kebabCase } from '@src/utils/util';
+import { kebabCase } from '../utils/util';
 /**
  * Show migrating guide in browser console.
  *
@@ -31,16 +31,12 @@ export default {
 
     for (let propName in definedProps) {
       propName = kebabCase(propName); // compatible with camel case
-      if (props[propName]) {
-        console.warn(`[Element Migrating][${ this.$options.name }][Attribute]: ${ props[propName] }`);
-      }
+      if (props[propName]) console.warn(`[Element Migrating][${this.$options.name}][Attribute]: ${props[propName]}`);
     }
 
     for (let eventName in definedEvents) {
       eventName = kebabCase(eventName); // compatible with camel case
-      if (events[eventName]) {
-        console.warn(`[Element Migrating][${ this.$options.name }][Event]: ${ events[eventName] }`);
-      }
+      if (events[eventName]) console.warn(`[Element Migrating][${this.$options.name}][Event]: ${events[eventName]}`);
     }
   },
   methods: {

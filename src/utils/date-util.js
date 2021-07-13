@@ -1,23 +1,22 @@
-import fecha from 'element-ui/src/utils/date';
-import { t } from 'element-ui/src/locale';
+import fecha from './date';
+import { t } from '../locale';
 
 const weeks = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
 const months = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
 
 const newArray = function(start, end) {
   let result = [];
-  for (let i = start; i <= end; i++) {
-    result.push(i);
-  }
+  for (let i = start; i <= end; i++) result.push(i);
+
   return result;
 };
 
 export const getI18nSettings = () => {
   return {
-    dayNamesShort: weeks.map(week => t(`el.datepicker.weeks.${ week }`)),
-    dayNames: weeks.map(week => t(`el.datepicker.weeks.${ week }`)),
-    monthNamesShort: months.map(month => t(`el.datepicker.months.${ month }`)),
-    monthNames: months.map((month, index) => t(`el.datepicker.month${ index + 1 }`)),
+    dayNamesShort: weeks.map(week => t(`el.datepicker.weeks.${week}`)),
+    dayNames: weeks.map(week => t(`el.datepicker.weeks.${week}`)),
+    monthNamesShort: months.map(month => t(`el.datepicker.months.${month}`)),
+    monthNames: months.map((month, index) => t(`el.datepicker.month${index + 1}`)),
     amPm: ['am', 'pm']
   };
 };
@@ -48,17 +47,15 @@ export const parseDate = function(string, format) {
 };
 
 export const getDayCountOfMonth = function(year, month) {
-  if (month === 3 || month === 5 || month === 8 || month === 10) {
-    return 30;
+  if (month === 3 || month === 5 || month === 8 || month === 10) return 30;
+
+
+  if (month === 1) if (year % 4 === 0 && year % 100 !== 0 || year % 400 === 0) {
+    return 29;
+  } else {
+    return 28;
   }
 
-  if (month === 1) {
-    if (year % 4 === 0 && year % 100 !== 0 || year % 400 === 0) {
-      return 29;
-    } else {
-      return 28;
-    }
-  }
 
   return 31;
 };
@@ -89,11 +86,8 @@ export const getStartDateOfMonth = function(year, month) {
   const result = new Date(year, month, 1);
   const day = result.getDay();
 
-  if (day === 0) {
-    return prevDate(result, 7);
-  } else {
-    return prevDate(result, day);
-  }
+  if (day === 0) return prevDate(result, 7);
+  else return prevDate(result, day);
 };
 
 export const getWeekNumber = function(src) {
@@ -119,15 +113,10 @@ export const getRangeHours = function(ranges) {
     disabledHours = disabledHours.concat(newArray(value[0], value[1]));
   });
 
-  if (disabledHours.length) {
-    for (let i = 0; i < 24; i++) {
-      hours[i] = disabledHours.indexOf(i) === -1;
-    }
-  } else {
-    for (let i = 0; i < 24; i++) {
-      hours[i] = false;
-    }
-  }
+  if (disabledHours.length) for (let i = 0; i < 24; i++) hours[i] = disabledHours.indexOf(i) === -1;
+
+  else for (let i = 0; i < 24; i++) hours[i] = false;
+
 
   return hours;
 };
@@ -140,48 +129,39 @@ export const getPrevMonthLastDays = (date, amount) => {
   return range(amount).map((_, index) => lastDay - (amount - index - 1));
 };
 
-export const getMonthDays = (date) => {
+export const getMonthDays = date => {
   const temp = new Date(date.getFullYear(), date.getMonth() + 1, 0);
   const days = temp.getDate();
   return range(days).map((_, index) => index + 1);
 };
 
 function setRangeData(arr, start, end, value) {
-  for (let i = start; i < end; i++) {
-    arr[i] = value;
-  }
+  for (let i = start; i < end; i++) arr[i] = value;
 }
 
 export const getRangeMinutes = function(ranges, hour) {
   const minutes = new Array(60);
 
-  if (ranges.length > 0) {
-    ranges.forEach(range => {
-      const start = range[0];
-      const end = range[1];
-      const startHour = start.getHours();
-      const startMinute = start.getMinutes();
-      const endHour = end.getHours();
-      const endMinute = end.getMinutes();
-      if (startHour === hour && endHour !== hour) {
-        setRangeData(minutes, startMinute, 60, true);
-      } else if (startHour === hour && endHour === hour) {
-        setRangeData(minutes, startMinute, endMinute + 1, true);
-      } else if (startHour !== hour && endHour === hour) {
-        setRangeData(minutes, 0, endMinute + 1, true);
-      } else if (startHour < hour && endHour > hour) {
-        setRangeData(minutes, 0, 60, true);
-      }
-    });
-  } else {
-    setRangeData(minutes, 0, 60, true);
-  }
+  if (ranges.length > 0) ranges.forEach(range => {
+    const start = range[0];
+    const end = range[1];
+    const startHour = start.getHours();
+    const startMinute = start.getMinutes();
+    const endHour = end.getHours();
+    const endMinute = end.getMinutes();
+    if (startHour === hour && endHour !== hour) setRangeData(minutes, startMinute, 60, true);
+    else if (startHour === hour && endHour === hour) setRangeData(minutes, startMinute, endMinute + 1, true);
+    else if (startHour !== hour && endHour === hour) setRangeData(minutes, 0, endMinute + 1, true);
+    else if (startHour < hour && endHour > hour) setRangeData(minutes, 0, 60, true);
+  });
+  else setRangeData(minutes, 0, 60, true);
+
   return minutes;
 };
 
 export const range = function(n) {
   // see https://stackoverflow.com/questions/3746725/create-a-javascript-array-containing-1-n
-  return Array.apply(null, {length: n}).map((_, n) => n);
+  return Array.apply(null, { length: n }).map((_, n) => n);
 };
 
 export const modifyDate = function(date, y, m, d) {
@@ -193,9 +173,8 @@ export const modifyTime = function(date, h, m, s) {
 };
 
 export const modifyWithTimeString = (date, time) => {
-  if (date == null || !time) {
-    return date;
-  }
+  if (date == null || !time) return date;
+
   time = parseDate(time, 'HH:mm:ss');
   return modifyTime(date, time.getHours(), time.getMinutes(), time.getSeconds());
 };

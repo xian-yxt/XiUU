@@ -1,6 +1,6 @@
 import Vue from 'vue';
-import merge from 'element-ui/src/utils/merge';
-import PopupManager from 'element-ui/src/utils/popup/popup-manager';
+import merge from '../merge';
+import PopupManager from './popup-manager';
 import getScrollBarWidth from '../scrollbar-width';
 import { getStyle, addClass, removeClass, hasClass } from '../dom';
 
@@ -45,7 +45,7 @@ export default {
   },
 
   beforeMount() {
-    this._popupId = 'popup-' + idSeed++;
+    this._popupId = `popup-${idSeed++}`;
     PopupManager.register(this._popupId, this);
   },
 
@@ -75,20 +75,15 @@ export default {
           Vue.nextTick(() => {
             this.open();
           });
-        } else {
-          this.open();
-        }
-      } else {
-        this.close();
-      }
+        } else this.open();
+      } else this.close();
     }
   },
 
   methods: {
     open(options) {
-      if (!this.rendered) {
-        this.rendered = true;
-      }
+      if (!this.rendered) this.rendered = true;
+
 
       const props = merge({}, this.$props || this, options);
 
@@ -99,14 +94,11 @@ export default {
       clearTimeout(this._openTimer);
 
       const openDelay = Number(props.openDelay);
-      if (openDelay > 0) {
-        this._openTimer = setTimeout(() => {
-          this._openTimer = null;
-          this.doOpen(props);
-        }, openDelay);
-      } else {
+      if (openDelay > 0) this._openTimer = setTimeout(() => {
+        this._openTimer = null;
         this.doOpen(props);
-      }
+      }, openDelay);
+      else this.doOpen(props);
     },
 
     doOpen(props) {
@@ -121,9 +113,8 @@ export default {
       const modal = props.modal;
 
       const zIndex = props.zIndex;
-      if (zIndex) {
-        PopupManager.zIndex = zIndex;
-      }
+      if (zIndex) PopupManager.zIndex = zIndex;
+
 
       if (modal) {
         if (this._closing) {
@@ -140,16 +131,14 @@ export default {
           scrollBarWidth = getScrollBarWidth();
           let bodyHasOverflow = document.documentElement.clientHeight < document.body.scrollHeight;
           let bodyOverflowY = getStyle(document.body, 'overflowY');
-          if (scrollBarWidth > 0 && (bodyHasOverflow || bodyOverflowY === 'scroll') && this.withoutHiddenClass) {
-            document.body.style.paddingRight = this.computedBodyPaddingRight + scrollBarWidth + 'px';
-          }
+          if (scrollBarWidth > 0 && (bodyHasOverflow || bodyOverflowY === 'scroll') && this.withoutHiddenClass) document.body.style.paddingRight = `${this.computedBodyPaddingRight + scrollBarWidth}px`;
+
           addClass(document.body, 'el-popup-parent--hidden');
         }
       }
 
-      if (getComputedStyle(dom).position === 'static') {
-        dom.style.position = 'absolute';
-      }
+      if (getComputedStyle(dom).position === 'static') dom.style.position = 'absolute';
+
 
       dom.style.zIndex = PopupManager.nextZIndex();
       this.opened = true;
@@ -174,14 +163,11 @@ export default {
 
       const closeDelay = Number(this.closeDelay);
 
-      if (closeDelay > 0) {
-        this._closeTimer = setTimeout(() => {
-          this._closeTimer = null;
-          this.doClose();
-        }, closeDelay);
-      } else {
+      if (closeDelay > 0) this._closeTimer = setTimeout(() => {
+        this._closeTimer = null;
         this.doClose();
-      }
+      }, closeDelay);
+      else this.doClose();
     },
 
     doClose() {
@@ -189,9 +175,8 @@ export default {
 
       this.onClose && this.onClose();
 
-      if (this.lockScroll) {
-        setTimeout(this.restoreBodyStyle, 200);
-      }
+      if (this.lockScroll) setTimeout(this.restoreBodyStyle, 200);
+
 
       this.opened = false;
 

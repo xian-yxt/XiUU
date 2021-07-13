@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import { on } from 'element-ui/src/utils/dom';
+import { on } from './dom';
 
 const nodeList = [];
 const ctx = '@@clickoutsideContext';
@@ -28,11 +28,8 @@ function createDocumentHandler(el, binding, vnode) {
 
     if (binding.expression &&
       el[ctx].methodName &&
-      vnode.context[el[ctx].methodName]) {
-      vnode.context[el[ctx].methodName]();
-    } else {
-      el[ctx].bindingFn && el[ctx].bindingFn();
-    }
+      vnode.context[el[ctx].methodName]) vnode.context[el[ctx].methodName]();
+    else el[ctx].bindingFn && el[ctx].bindingFn();
   };
 }
 
@@ -65,12 +62,11 @@ export default {
   unbind(el) {
     let len = nodeList.length;
 
-    for (let i = 0; i < len; i++) {
-      if (nodeList[i][ctx].id === el[ctx].id) {
-        nodeList.splice(i, 1);
-        break;
-      }
+    for (let i = 0; i < len; i++) if (nodeList[i][ctx].id === el[ctx].id) {
+      nodeList.splice(i, 1);
+      break;
     }
+
     delete el[ctx];
   }
 };

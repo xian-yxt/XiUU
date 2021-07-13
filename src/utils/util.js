@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import { isString, isObject } from '@src/utils/types';
+import { isString, isObject } from './types';
 
 const hasOwnProperty = Object.prototype.hasOwnProperty;
 
@@ -10,19 +10,16 @@ export function hasOwn(obj, key) {
 }
 
 function extend(to, _from) {
-  for (let key in _from) {
-    to[key] = _from[key];
-  }
+  for (let key in _from) to[key] = _from[key];
+
   return to;
 }
 
 export function toObject(arr) {
-  var res = {};
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i]) {
-      extend(res, arr[i]);
-    }
-  }
+  let res = {};
+  for (let i = 0; i < arr.length; i++) if (arr[i]) extend(res, arr[i]);
+
+
   return res;
 }
 
@@ -54,12 +51,10 @@ export function getPropByPath(obj, path, strict) {
   for (let len = keyArr.length; i < len - 1; ++i) {
     if (!tempObj && !strict) break;
     let key = keyArr[i];
-    if (key in tempObj) {
-      tempObj = tempObj[key];
-    } else {
-      if (strict) {
-        throw new Error('please transfer a valid prop path to form item!');
-      }
+    if (key in tempObj) tempObj = tempObj[key];
+    else {
+      if (strict) throw new Error('please transfer a valid prop path to form item!');
+
       break;
     }
   }
@@ -80,9 +75,8 @@ export const valueEquals = (a, b) => {
   if (!(a instanceof Array)) return false;
   if (!(b instanceof Array)) return false;
   if (a.length !== b.length) return false;
-  for (let i = 0; i !== a.length; ++i) {
-    if (a[i] !== b[i]) return false;
-  }
+  for (let i = 0; i !== a.length; ++i) if (a[i] !== b[i]) return false;
+
   return true;
 };
 
@@ -90,11 +84,9 @@ export const escapeRegexpString = (value = '') => String(value).replace(/[|\\{}(
 
 // TODO: use native Array.find, Array.findIndex when IE support is dropped
 export const arrayFindIndex = function(arr, pred) {
-  for (let i = 0; i !== arr.length; ++i) {
-    if (pred(arr[i])) {
-      return i;
-    }
-  }
+  for (let i = 0; i !== arr.length; ++i) if (pred(arr[i])) return i;
+
+
   return -1;
 };
 
@@ -105,13 +97,9 @@ export const arrayFind = function(arr, pred) {
 
 // coerce truthy value to array
 export const coerceTruthyValueToArray = function(val) {
-  if (Array.isArray(val)) {
-    return val;
-  } else if (val) {
-    return [ val ];
-  } else {
-    return [];
-  }
+  if (Array.isArray(val)) return val;
+  else if (val) return [val];
+  else return [];
 };
 
 export const isIE = function() {
@@ -128,15 +116,13 @@ export const isFirefox = function() {
 
 export const autoprefixer = function(style) {
   if (typeof style !== 'object') return style;
-  const rules = [ 'transform', 'transition', 'animation' ];
-  const prefixes = [ 'ms-', 'webkit-' ];
+  const rules = ['transform', 'transition', 'animation'];
+  const prefixes = ['ms-', 'webkit-'];
   rules.forEach(rule => {
     const value = style[rule];
-    if (rule && value) {
-      prefixes.forEach(prefix => {
-        style[prefix + rule] = value;
-      });
-    }
+    if (rule && value) prefixes.forEach(prefix => {
+      style[prefix + rule] = value;
+    });
   });
   return style;
 };
@@ -157,36 +143,27 @@ export const capitalize = function(str) {
 export const looseEqual = function(a, b) {
   const isObjectA = isObject(a);
   const isObjectB = isObject(b);
-  if (isObjectA && isObjectB) {
-    return JSON.stringify(a) === JSON.stringify(b);
-  } else if (!isObjectA && !isObjectB) {
-    return String(a) === String(b);
-  } else {
-    return false;
-  }
+  if (isObjectA && isObjectB) return JSON.stringify(a) === JSON.stringify(b);
+  else if (!isObjectA && !isObjectB) return String(a) === String(b);
+  else return false;
 };
 
 export const arrayEquals = function(arrayA, arrayB) {
   arrayA = arrayA || [];
   arrayB = arrayB || [];
 
-  if (arrayA.length !== arrayB.length) {
-    return false;
-  }
+  if (arrayA.length !== arrayB.length) return false;
 
-  for (let i = 0; i < arrayA.length; i++) {
-    if (!looseEqual(arrayA[i], arrayB[i])) {
-      return false;
-    }
-  }
+
+  for (let i = 0; i < arrayA.length; i++) if (!looseEqual(arrayA[i], arrayB[i])) return false;
+
 
   return true;
 };
 
 export const isEqual = function(value1, value2) {
-  if (Array.isArray(value1) && Array.isArray(value2)) {
-    return arrayEquals(value1, value2);
-  }
+  if (Array.isArray(value1) && Array.isArray(value2)) return arrayEquals(value1, value2);
+
   return looseEqual(value1, value2);
 };
 
@@ -234,8 +211,7 @@ export function rafThrottle(fn) {
 }
 
 export function objToArray(obj) {
-  if (Array.isArray(obj)) {
-    return obj;
-  }
-  return isEmpty(obj) ? [] : [ obj ];
+  if (Array.isArray(obj)) return obj;
+
+  return isEmpty(obj) ? [] : [obj];
 }

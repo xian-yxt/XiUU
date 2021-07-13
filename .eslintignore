@@ -1,7 +1,5 @@
 /build/
 build/*.js
-config/*.js
-/config/
 /dist/
-/*.js
+/frameworks/
 /test/unit/coverage/

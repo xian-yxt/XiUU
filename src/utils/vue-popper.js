@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import {
   PopupManager
-} from 'element-ui/src/utils/popup';
+} from './popup';
 
 const PopperJS = Vue.prototype.$isServer ? function() {} : require('./popper');
 const stop = e => e.stopPropagation();
@@ -80,9 +80,8 @@ export default {
     createPopper() {
       if (this.$isServer) return;
       this.currentPlacement = this.currentPlacement || this.placement;
-      if (!/^(top|bottom|left|right)(-start|-end)?$/g.test(this.currentPlacement)) {
-        return;
-      }
+      if (!(/^(top|bottom|left|right)(-start|-end)?$/g).test(this.currentPlacement)) return;
+
 
       const options = this.popperOptions;
       const popper = this.popperElm = this.popperElm || this.popper || this.$refs.popper;
@@ -90,16 +89,14 @@ export default {
 
       if (!reference &&
         this.$slots.reference &&
-        this.$slots.reference[0]) {
-        reference = this.referenceElm = this.$slots.reference[0].elm;
-      }
+        this.$slots.reference[0]) reference = this.referenceElm = this.$slots.reference[0].elm;
+
 
       if (!popper || !reference) return;
       if (this.visibleArrow) this.appendArrow(popper);
       if (this.appendToBody) document.body.appendChild(this.popperElm);
-      if (this.popperJS && this.popperJS.destroy) {
-        this.popperJS.destroy();
-      }
+      if (this.popperJS && this.popperJS.destroy) this.popperJS.destroy();
+
 
       options.placement = this.currentPlacement;
       options.offset = this.offset;
@@ -110,9 +107,8 @@ export default {
         this.resetTransformOrigin();
         this.$nextTick(this.updatePopper);
       });
-      if (typeof options.onUpdate === 'function') {
-        this.popperJS.onUpdate(options.onUpdate);
-      }
+      if (typeof options.onUpdate === 'function') this.popperJS.onUpdate(options.onUpdate);
+
       this.popperJS._popper.style.zIndex = PopupManager.nextZIndex();
       this.popperElm.addEventListener('click', stop);
     },
@@ -121,12 +117,8 @@ export default {
       const popperJS = this.popperJS;
       if (popperJS) {
         popperJS.update();
-        if (popperJS._popper) {
-          popperJS._popper.style.zIndex = PopupManager.nextZIndex();
-        }
-      } else {
-        this.createPopper();
-      }
+        if (popperJS._popper) popperJS._popper.style.zIndex = PopupManager.nextZIndex();
+      } else this.createPopper();
     },
 
     doDestroy(forceDestroy) {
@@ -137,9 +129,7 @@ export default {
     },
 
     destroyPopper() {
-      if (this.popperJS) {
-        this.resetTransformOrigin();
-      }
+      if (this.popperJS) this.resetTransformOrigin();
     },
 
     resetTransformOrigin() {
@@ -154,29 +144,26 @@ export default {
       let origin = placementMap[placement];
       this.popperJS._popper.style.transformOrigin = typeof this.transformOrigin === 'string'
         ? this.transformOrigin
-        : ['top', 'bottom'].indexOf(placement) > -1 ? `center ${ origin }` : `${ origin } center`;
+        : ['top', 'bottom'].indexOf(placement) > -1 ? `center ${origin}` : `${origin} center`;
     },
 
     appendArrow(element) {
       let hash;
-      if (this.appended) {
-        return;
-      }
+      if (this.appended) return;
+
 
       this.appended = true;
 
-      for (let item in element.attributes) {
-        if (/^_v-/.test(element.attributes[item].name)) {
-          hash = element.attributes[item].name;
-          break;
-        }
+      for (let item in element.attributes) if (/^_v-/.test(element.attributes[item].name)) {
+        hash = element.attributes[item].name;
+        break;
       }
+
 
       const arrow = document.createElement('div');
 
-      if (hash) {
-        arrow.setAttribute(hash, '');
-      }
+      if (hash) arrow.setAttribute(hash, '');
+
       arrow.setAttribute('x-arrow', '');
       arrow.className = 'popper__arrow';
       element.appendChild(arrow);

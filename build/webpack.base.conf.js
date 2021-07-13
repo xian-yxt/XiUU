@@ -3,7 +3,6 @@ const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
-
 const MarkdownItContainer = require('markdown-it-container')
 const striptags = require('./strip-tags')
 const vueMarkdown = {
@@ -132,7 +131,7 @@ module.exports = {
         test: /\.md$/,
         loader: 'vue-markdown-loader',
         options: vueMarkdown
-      }
+      },
     ]
   },
   node: {
