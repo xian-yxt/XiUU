@@ -9,11 +9,7 @@
   </div>
 </template>
 */
-<<<<<<< HEAD
 import ElButton from '../../../frameworks/elementui/button';
-=======
-import ElButton from '@fm/elementui/button';
->>>>>>> 8915056971d47ea90443f0062bb319a835f913e6
 export default {
   name: 'BaseElButton',
   components: {

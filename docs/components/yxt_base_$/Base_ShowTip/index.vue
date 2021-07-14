@@ -11,12 +11,7 @@ class="w-alert__icon"
       <div class="w-alert__content">
         <span
 class="w-alert__title"
-<<<<<<< HEAD
               :class="isBoldTitle">{{this.title}}</span>
-=======
-              :class="isBoldTitle"
-              >{{this.title}}</span>
->>>>>>> 8915056971d47ea90443f0062bb319a835f913e6
         <p
 class="w-alert__description"
            v-if="description">{{description}}</p>

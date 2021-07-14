@@ -12,11 +12,7 @@ class="w-alert__icon"
         <span
 class="w-alert__title"
               :class="isBoldTitle"
-<<<<<<< HEAD
               >{{this.title}}</span>
-=======
-              style="">{{this.title}}</span>
->>>>>>> 8915056971d47ea90443f0062bb319a835f913e6
         <p
 class="w-alert__description"
            v-if="description">{{description}}</p>
@@ -84,11 +80,7 @@ export default {
       return `w-alert--${this.type}`;
     },
     iconClass() {
-<<<<<<< HEAD
       // 暂无对应图标
-=======
-      //暂无对应图标
->>>>>>> 8915056971d47ea90443f0062bb319a835f913e6
       // return `w-icon--${this.type}`
       return 'w-icon-fav';
     },

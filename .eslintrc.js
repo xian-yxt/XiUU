@@ -146,15 +146,12 @@ module.exports = {
     'no-duplicate-case': 'error', /**switch 语句中禁止出现重复的 case */
     'no-eval': 'error', /**禁止使用 eval,eval 语句存在安全风险，可能导致注入攻击 */
     'spaced-comment': ['error', 'always'], /**注释内容和注释符之间需留有一个空格 */
-<<<<<<< HEAD
     'no-global-assign': 'error', /**禁止对原生对象或只读的全局对象进行赋值 */
     'no-invalid-regexp': 'error', /**禁止在 RegExp 构造函数中使用无效的正则表达式 */
     'no-regex-spaces': 'error', /**禁止在正则表达式中出现多个连续空格 */
     'no-proto': 'error', /**禁止使用 proto 属性 */
     'no-script-url': 'error', /**禁止使用 javascript:url，避免脚本恶意注入 */
     'no-delete-var': 'error', /**禁止 delete 变量 */
-=======
->>>>>>> 8915056971d47ea90443f0062bb319a835f913e6
     
   }
 }
