@@ -22,7 +22,7 @@ export default{
         {
           key: 'age',
           title: '年龄',
-          width: 120
+          width: 120,
         },
         {
           key: 'gender',
@@ -60,5 +60,5 @@ export default{
     :is-selectable="true"
     :pagination-config="paginationConfig"
     :actions="handleTableActions"
-  />
+  ></BaseTable>
 </div>

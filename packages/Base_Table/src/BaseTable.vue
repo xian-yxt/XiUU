@@ -4,7 +4,7 @@
       ref="baseTableRef"
       v-loading="isLoading"
       class="base-table-content"
-      :header-cell-style="{background: '#FAFAFA',color:'#606266'}"
+      :header-cell-style="headerCellStyle"
       :element-loading-text="loadingConfig.loadingText"
       :element-loading-spinner="loadingConfig.loadingSpinner"
       :element-loading-background="loadingConfig.loadingBackground"
@@ -64,22 +64,6 @@
           :show-overflow-tooltip="item.tooltip"
         />
         <el-table-column
-          v-else-if="!item.popover"
-          :key="item.key"
-          :prop="item.key"
-          :label="item.title"
-          :width="item.width"
-          :align="item.align"
-          :fixed="item.fixed"
-          :column-key="item.columnKey"
-          :min-width="item.minWidth"
-          :sortable="item.sortable"
-          :sort-method="(item.sortable && sortway === 'method') ? sortMethod : null"
-          :sort-by="(item.sortable && sortway === 'by') ? sortBy : null"
-          :formatter="item.formatter"
-          :show-overflow-tooltip="item.tooltip"
-        />
-        <el-table-column
           v-else
           :key="item.key"
           :prop="item.key"
@@ -95,8 +79,14 @@
           :formatter="item.formatter"
           :show-overflow-tooltip="item.tooltip"
         >
-          <template slot-scope="scope">
-            <slot :row="scope.row" :row1="item.key" :index="scope.$index" name="column" />
+          <template v-if="item.isscope">
+            <slot
+              slot-scope="scope"
+              :row="scope.row"
+              :item="item"
+              :index="scope.$index"
+              name="isscope"
+            />
           </template>
         </el-table-column>
       </template>
@@ -164,17 +154,8 @@
   </div>
 </template>
 <script>
-import ElTable from '../../../frameworks/elementui/table';
-import ElTableColumn from '../../../frameworks/elementui/table-column';
-import ElPagination from '../../../frameworks/elementui/pagination';
-
 export default {
   name: 'BaseTable',
-  components: {
-    ElTable,
-    ElTableColumn,
-    ElPagination
-  },
   props: {
     tableColumns: {
       type: Array,
@@ -186,6 +167,15 @@ export default {
       type: Array,
       default: () => {
         return [];
+      }
+    },
+    headerCellStyle: {
+      type: Object,
+      default: () => {
+        return {
+          background: '#fafafa',
+          color: '#606266'
+        };
       }
     },
     /**
@@ -295,7 +285,7 @@ export default {
     },
     isLoading: {
       type: Boolean,
-      default: true
+      default: false
     },
     loadingConfig: {
       type: Object,

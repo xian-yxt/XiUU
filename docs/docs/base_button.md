@@ -6,7 +6,6 @@
 <div class="demo-block">
   <div>
     <base-button>默认按钮</base-button>
-    <base-el-button type="primary"><span slot="title">主要按钮slot</span></base-el-button>
     <base-button type="success">成功按钮</base-button>
     <base-button type="info">信息按钮</base-button>
     <base-button type="warning">警告按钮</base-button>
