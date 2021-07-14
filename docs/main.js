@@ -18,7 +18,7 @@ import '../frameworks/index';
  * [ 注：最终效果要确保两者(components与packages)中效果一致！！！ ]
  */
 import YXTUI from '../packages/index';
-import '../packages/theme-default/lib/index.less';
+import '../packages/theme-default/lib/index.css';
 Vue.use(YXTUI);
 
 Vue.config.productionTip = false;

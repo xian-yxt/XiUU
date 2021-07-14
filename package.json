@@ -1,14 +1,14 @@
 {
-  "name": "yxt-ui",
-  "version": "0.0.2",
+  "name": "xiuu-lib",
+  "version": "1.0.1",
   "description": "易迅通科技前端组件库",
-  "author": "易迅通",
+  "author": "xiooLoo <204138282@qq.com>",
   "license": "MIT",
   "main": "packages/index.js",
-  "homepage": "http://114.116.145.114:8088/yxt-vehicle/yxt-ui",
+  "homepage": "https://github.com/xian-yxt/XiUU.git",
   "repository": {
     "type": "git",
-    "url": "http://114.116.145.114:8088/yxt-vehicle/yxt-ui"
+    "url": "https://github.com/xian-yxt/XiUU.git"
   },
   "keywords": [
     "YXTUI",
