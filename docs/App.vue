@@ -19,7 +19,7 @@ import DocsFooter from '@/components/_global_$/DocsFooter.vue';
 import DocsSideBar from '@/components/_global_$/DocsSideBar.vue';
 import DocsMainSkeleton from '@/components/_global_$/DocsMainSkeleton.vue';
 
-export default {
+export default { 
   name: 'app',
   data() {
     return {

@@ -42,23 +42,35 @@
   text-align: center;
   background-color: #fff;
   box-shadow: 0 4px 30px 0 rgba(223, 225, 230, 0.8);
+<<<<<<< HEAD:docs/components/_global_$/DocsFooter.vue
 
+=======
+>>>>>>> 8915056971d47ea90443f0062bb319a835f913e6:docs/components/__STATIC_COMPONENTS/DocsFooter.vue
   .footer-container {
     width: 90%;
     margin: 0 auto;
   }
+<<<<<<< HEAD:docs/components/_global_$/DocsFooter.vue
 
+=======
+>>>>>>> 8915056971d47ea90443f0062bb319a835f913e6:docs/components/__STATIC_COMPONENTS/DocsFooter.vue
   .text-left {
     font-size: 12px;
     display: flex;
     align-items: center;
     color: #5e6d82;
+<<<<<<< HEAD:docs/components/_global_$/DocsFooter.vue
 
+=======
+>>>>>>> 8915056971d47ea90443f0062bb319a835f913e6:docs/components/__STATIC_COMPONENTS/DocsFooter.vue
     img {
       border-radius: 100%;
       margin-right: 10px;
     }
+<<<<<<< HEAD:docs/components/_global_$/DocsFooter.vue
 
+=======
+>>>>>>> 8915056971d47ea90443f0062bb319a835f913e6:docs/components/__STATIC_COMPONENTS/DocsFooter.vue
     a {
       color: #6190e8;
     }

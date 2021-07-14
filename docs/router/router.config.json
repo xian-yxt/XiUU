@@ -35,11 +35,14 @@
           "desc": "Button 按钮",
           "name": "base_button",
           "path": "/base_button"
+<<<<<<< HEAD
         },
         {
           "desc": "Table 表格",
           "name": "base_table",
           "path": "/base_table"
+=======
+>>>>>>> 8915056971d47ea90443f0062bb319a835f913e6
         }
       ]
     },

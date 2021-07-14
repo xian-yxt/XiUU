@@ -33,10 +33,19 @@ export default{
     disabled: Boolean,
     round: Boolean
   },
+<<<<<<< HEAD
   data() {
     return {
       msg: 'button'
     };
   }
 };
+=======
+  data () {
+    return {
+      msg: 'button'
+    }
+  }
+}
+>>>>>>> 8915056971d47ea90443f0062bb319a835f913e6
 </script>
