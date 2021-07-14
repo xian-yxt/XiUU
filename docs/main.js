@@ -20,7 +20,9 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 
 import YXTUI from '../packages';
-import 'xiuu-lib/packages/theme-default/lib/index.css';
+import '../packages/theme-default/lib/index.less';
+// import YXTUI from 'xiuu-lib';
+// import 'xiuu-lib/packages/theme-default/lib/index.less';
 
 Vue.use(ElementUI);
 Vue.use(YXTUI);

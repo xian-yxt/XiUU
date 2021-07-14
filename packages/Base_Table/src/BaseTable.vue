@@ -103,7 +103,7 @@
           <template v-for="btn in btns">
             <template v-if="btn.isIcon">
               <el-tooltip
-                v-show="$has(btn.code)"
+                v-show="btn.code"
                 :key="btn.value"
                 :effect="tooltipConfig.effect"
                 :content="btn.label"
@@ -115,10 +115,10 @@
             <template v-else>
               <el-button
                 :key="btn.value"
-                :style="{display: $has(btn.code)?btn.tag?scope.row[btn.tag]:'block':'none'}"
+                :style="{display: btn.code? 'block' : 'none'}"
                 :type="btn.type"
                 size="mini"
-                :class="btn.type === 'primary' ? 'single-button-download' : btn.type === 'normal' ? 'single-button-gray' : btn.type === 'text' ? '' : 'single-button-bl'"
+                :class="btn.type === 'primary' ? 'yxt-base-button-type-lightblue' : btn.type === 'normal' ? 'yxt-base-button-type-normal' : btn.type === 'text' ? '' : 'yxt-base-button-type-primary'"
                 :disabled="btn.disabled"
                 @click="handleAction(btn, scope.row)"
               >
